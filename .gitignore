@@ -1,0 +1,13 @@
+# Dependency directories
+node_modules/
+
+# Local data files (auth.json asla gitmemeli)
+auth.json
+depo.lock
+
+# Log files
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

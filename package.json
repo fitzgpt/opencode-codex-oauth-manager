@@ -1,0 +1,11 @@
+{
+  "name": "opencode-codex-oauth-manager",
+  "version": "1.0.0",
+  "description": "OpenCode OpenAI Account Manager & Health Checker",
+  "main": "index.js",
+  "bin": {
+    "oc-hesap": "./index.js"
+  },
+  "author": "FitzGPT",
+  "license": "MIT"
+}
