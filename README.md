@@ -8,46 +8,106 @@
 
 I originally developed **opencode-codex-oauth-manager** to streamline my own workflow while managing multiple **OpenAI Plus, Team, or Business** accounts within [OpenCode](https://github.com/opencode). I decided to share it with the community, hoping it might be useful for others who deal with similar setups.
 
-Stop manually editing `auth.json` or losing track of your usage limits. This is your high-performance CLI command center. ⚡
+---
+
+## ⚡ At a Glance: Why It’s Critical
+
+Managing several high-tier accounts manually is a productivity killer. Here’s why this tool is your new unfair advantage:
+
+- **🔥 Zero-Friction Switching:** Swap active accounts in under 2 seconds. No config file editing, no logout/login loops.
+- **⚡ Instant Apply:** **No restart required!** Changes apply to OpenCode in real-time. Just switch and keep working.
+- **📊 Real-Time Quota Intel:** Don't guess. On every startup, it pings OpenAI to show you exactly how many messages you have left and the precise reset time.
+- **🧠 Smart Auto-Sync:** It automatically detects your active OpenCode account and securely clones it into your local database.
+- **🛡️ Use Responsibly:** This tool is built for productivity. **Please do not abuse the system.**
+- **💎 Pro Support:** Perfect for **Pro** account users too. (And if you actually manage to finish your Pro quota, hats off to you! 😄)
 
 ---
 
 ## 🔥 Why It's a Game Changer
 
-If you're an OpenCode power user, this tool was made for you:
+If you're an OpenCode power user, this is your new unfair advantage:
 
-- **🚀 Zero-Friction Switching:** Swap active accounts in under 2 seconds.
-- **⚡ Instant Apply:** **No restart required!** Changes apply to OpenCode in real-time. 
-- **📊 Real-Time Quota Intel:** Precise message counts and reset timers on every startup.
-- **🧠 Smart Auto-Sync:** Simply login to a new account via OpenCode, run the tool, and it's automatically added to your list!
-- **📈 Usage Insights:** Track which accounts are your workhorses.
-- **🛡️ Use Responsibly:** This tool is for productivity. **Please do not abuse the system.**
-- **💎 Pro Support:** Perfect for **Pro** account users too. (And if you actually manage to finish your Pro quota, hats off to you! 😄)
-- **🌍 Universal Support:** Flawless performance on **Windows, Linux, and macOS**.
+- **🚀 Speed:** Switch between personal and business accounts faster than you can type a message.
+- **📉 Transparency:** See your 5-hour and weekly limits in color-coded ASCII bars.
+- **📈 Insights:** Track usage statistics to see which accounts are providing the most value.
+- **💾 Portability:** Easily backup your entire account repository and move it to another machine.
+- **🌍 Universal:** Native, high-performance support for **Windows, Linux, and macOS**.
 
 ---
 
-## 🛠️ How to Add New Accounts
+## 🛠️ Features That Actually Matter
 
-Adding accounts is effortless and handled automatically:
+- **Interactive Command Center:** A sleek, intuitive menu for renames, health checks, and switching.
+- **Auto-Health Check:** Optional automatic refresh on startup so you're always working with fresh data.
+- **Account Labeling:** Give your accounts human names like `Company-Business` or `Backup-Plus-2`.
+- **i18n Ready:** Dynamic auto-detection for English and Turkish languages.
+- **Local-First Security:** Your tokens stay on your machine. We never touch your secrets.
+
+---
+
+## 🚀 Quick Start & Installation
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18 or higher)
+
+### Setup
+1. **Clone the repository:** 
+   ```bash
+   git clone https://github.com/fitzgpt/opencode-codex-oauth-manager.git
+   cd opencode-codex-oauth-manager
+   ```
+2. **Run the One-Click Installer:**
+   - **Windows:** Double-click `install.bat`.
+   - **Linux/macOS:** `chmod +x install.sh && ./install.sh`.
+3. **Launch:** Type `oc-hesap` in any terminal.
+
+---
+
+## 🎮 Interactive Commands
+
+Forget about complex flags. Manage everything with single keystrokes:
+
+- **`[Number]`**: Instantly switch to that account.
+- **`0`**: Force a manual refresh of all account health/quotas.
+- **`r [N] [Name]`**: Rename account number `N` to a custom name.
+- **`l`**: Toggle interface language (English/Turkish).
+- **`b`**: Create a timestamped backup of your account database.
+- **`i`**: Import an existing backup file.
+- **`q`**: Exit the manager.
+
+---
+
+## ➕ How to Add New Accounts
+
+Adding accounts is 100% automated and friction-free:
 
 1. Open **OpenCode**.
 2. Type `/connect` and select **OpenAI**.
 3. Log in to your new account.
-4. Open your terminal and run `oc-hesap`.
-5. **Boom!** The new account is detected and added to your management center automatically.
+4. Run `oc-hesap`.
+5. **Boom!** The new account is detected and added to your list automatically.
 
 ---
 
 ## 🗺️ 2026 Roadmap
 
 ### **Phase 1: Foundations (Completed) ✅**
-- [x] **Modular Architecture:** Professional code structure.
-- [x] **Cross-Platform Support:** Native installers.
+- [x] **Modular Architecture:** Professional code structure for high stability.
+- [x] **Cross-Platform Support:** Native installers for all OS.
 - [x] **Auto-Sync:** Automatic detection of new OpenCode logins.
 - [x] **Usage Statistics:** Tracking account usage counts.
 - [x] **i18n Support:** Dynamic English/Turkish toggle.
 - [x] **Backup System:** Export/Import functionality.
+
+### **Phase 2: Power & Security (In Progress) 🏗️**
+- [ ] **Master Password:** AES-256 encryption for stored tokens.
+- [ ] **Parallel Checks:** Refresh all account statuses simultaneously.
+- [ ] **Manual Management:** Add/Remove accounts via CLI directly.
+
+### **Phase 3: The Future (Coming Soon) 🌟**
+- [ ] **TUI Dashboard:** A fully graphical terminal interface.
+- [ ] **Desktop Notifications:** Alerts when your quota resets.
+- [ ] **Cloud Sync:** Securely sync across multiple devices.
 
 ---
 
