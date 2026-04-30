@@ -42,6 +42,7 @@ If you're an OpenCode power user, this is your new unfair advantage:
 - **Account Labeling:** Give your accounts human names like `Company-Business` or `Backup-Plus-2`.
 - **i18n Ready:** Dynamic auto-detection for English and Turkish languages.
 - **Local-First Security:** Your tokens stay on your machine. We never touch your secrets.
+- **OpenCode Sidebar Plugin (NEW):** Includes an optional TUI sidebar panel with quick account switching, compact quota view, refresh control, auto-refresh toggle, and saved UI preferences.
 
 ---
 
@@ -74,6 +75,42 @@ Forget about complex flags. Manage everything with single keystrokes:
 - **`b`**: Create a timestamped backup of your account database.
 - **`i`**: Import an existing backup file.
 - **`q`**: Exit the manager.
+
+---
+
+## 🧩 Optional Sidebar Plugin
+
+This repository now includes an OpenCode TUI sidebar plugin at `plugin/oc-hesap-sidebar`.
+
+What it provides:
+
+- Compact quota panel with status badge (`OK`, `MID`, `LOW`, `ERR`)
+- Manual refresh with cooldown indicator
+- Auto-refresh toggle
+- Accordion account list with one-click account switching
+- Preferences persistence (`panel`, `accounts`, `auto refresh`) via OpenCode KV
+
+Quick setup (global OpenCode config):
+
+1. Ensure your OpenCode config directory has plugin dependencies:
+
+```bash
+cd ~/.config/opencode
+bun add @opentui/solid solid-js
+```
+
+2. Add this to `~/.config/opencode/tui.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "plugin": [
+    ["file:///ABSOLUTE/PATH/TO/opencode-codex-oauth-manager/plugin/oc-hesap-sidebar", { "refreshMs": 30000 }]
+  ]
+}
+```
+
+3. Restart OpenCode.
 
 ---
 
