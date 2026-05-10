@@ -1,10 +1,52 @@
 {
   "name": "opencode-codex-oauth-manager",
   "version": "1.0.0",
-  "description": "OpenCode OpenAI Account Manager & Health Checker",
+  "description": "OpenCode OpenAI account manager, quota checker, and sidebar plugin installer",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./plugin/oc-hesap-sidebar": "./plugin/oc-hesap-sidebar/tui.tsx",
+    "./plugin/oc-hesap-sidebar/tui": "./plugin/oc-hesap-sidebar/tui.tsx"
+  },
   "bin": {
-    "oc-hesap": "./index.js"
+    "oc-hesap": "index.js"
+  },
+  "files": [
+    "index.js",
+    "src",
+    "plugin/oc-hesap-sidebar/tui.tsx",
+    "plugin/oc-hesap-sidebar/package.json",
+    "plugin/oc-hesap-sidebar/README.md",
+    "README.md",
+    "README_TR.md",
+    "LICENSE",
+    "preview.png"
+  ],
+  "scripts": {
+    "postinstall": "node -e \"console.log('Run oc-hesap install-plugin to enable the OpenCode sidebar plugin.')\""
+  },
+  "keywords": [
+    "opencode",
+    "openai",
+    "codex",
+    "oauth",
+    "account-manager",
+    "tui-plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fitzgpt/opencode-codex-oauth-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fitzgpt/opencode-codex-oauth-manager/issues"
+  },
+  "homepage": "https://github.com/fitzgpt/opencode-codex-oauth-manager#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@opentui/solid": "^0.2.6",
+    "solid-js": "^1.9.10"
   },
   "author": "FitzGPT",
   "license": "MIT"

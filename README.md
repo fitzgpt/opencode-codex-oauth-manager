@@ -52,15 +52,16 @@ If you're an OpenCode power user, this is your new unfair advantage:
 - [Node.js](https://nodejs.org/) (v18 or higher)
 
 ### Setup
-1. **Clone the repository:** 
+1. **Install from npm:**
    ```bash
-   git clone https://github.com/fitzgpt/opencode-codex-oauth-manager.git
-   cd opencode-codex-oauth-manager
+   npm install -g opencode-codex-oauth-manager
    ```
-2. **Run the One-Click Installer:**
-   - **Windows:** Double-click `install.bat`.
-   - **Linux/macOS:** `chmod +x install.sh && ./install.sh`.
-3. **Launch:** Type `oc-hesap` in any terminal.
+2. **Launch:** Type `oc-hesap` in any terminal.
+3. **Optional sidebar plugin:**
+   ```bash
+   oc-hesap install-plugin
+   ```
+   Restart OpenCode after installing the sidebar plugin.
 
 ---
 
@@ -90,27 +91,13 @@ What it provides:
 - Accordion account list with one-click account switching
 - Preferences persistence (`panel`, `accounts`, `auto refresh`) via OpenCode KV
 
-Quick setup (global OpenCode config):
-
-1. Ensure your OpenCode config directory has plugin dependencies:
+Quick setup:
 
 ```bash
-cd ~/.config/opencode
-bun add @opentui/solid solid-js
+oc-hesap install-plugin
 ```
 
-2. Add this to `~/.config/opencode/tui.json`:
-
-```json
-{
-  "$schema": "https://opencode.ai/tui.json",
-  "plugin": [
-    ["file:///ABSOLUTE/PATH/TO/opencode-codex-oauth-manager/plugin/oc-hesap-sidebar/tui.tsx", { "refreshMs": 30000 }]
-  ]
-}
-```
-
-3. Restart OpenCode.
+This updates `~/.config/opencode/tui.json` automatically. Restart OpenCode after installing the sidebar plugin.
 
 ---
 

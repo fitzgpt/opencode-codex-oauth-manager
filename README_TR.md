@@ -52,15 +52,16 @@ Eğer sıkı bir OpenCode kullanıcısıysanız, bu araç sizin yeni avantajın�
 - [Node.js](https://nodejs.org/) (v18 veya üzeri)
 
 ### Adımlar
-1. **Repoyu klonlayın:** 
+1. **npm üzerinden kurun:**
    ```bash
-   git clone https://github.com/fitzgpt/opencode-codex-oauth-manager.git
-   cd opencode-codex-oauth-manager
+   npm install -g opencode-codex-oauth-manager
    ```
-2. **Tek Tıkla Kurulumu Çalıştırın:**
-   - **Windows:** `install.bat` dosyasına çift tıklayın.
-   - **Linux/macOS:** `chmod +x install.sh && ./install.sh` komutunu çalıştırın.
-3. **Başlatın:** Herhangi bir terminale `oc-hesap` yazın.
+2. **Başlatın:** Herhangi bir terminale `oc-hesap` yazın.
+3. **Opsiyonel sidebar eklentisi:**
+   ```bash
+   oc-hesap install-plugin
+   ```
+   Sidebar eklentisini kurduktan sonra OpenCode'u yeniden başlatın.
 
 ---
 
@@ -90,27 +91,13 @@ Sunduğu özellikler:
 - Accordion hesap listesi ve tek tıkla hesap geçişi
 - OpenCode KV ile tercihleri kalıcı saklama (`panel`, `accounts`, `auto refresh`)
 
-Hızlı kurulum (global OpenCode config):
-
-1. OpenCode config dizininde eklenti bağımlılıklarını kurun:
+Hızlı kurulum:
 
 ```bash
-cd ~/.config/opencode
-bun add @opentui/solid solid-js
+oc-hesap install-plugin
 ```
 
-2. `~/.config/opencode/tui.json` dosyasına şunu ekleyin:
-
-```json
-{
-  "$schema": "https://opencode.ai/tui.json",
-  "plugin": [
-    ["file:///ABSOLUTE/PATH/TO/opencode-codex-oauth-manager/plugin/oc-hesap-sidebar/tui.tsx", { "refreshMs": 30000 }]
-  ]
-}
-```
-
-3. OpenCode'u yeniden başlatın.
+Bu komut `~/.config/opencode/tui.json` dosyasını otomatik günceller. Sidebar eklentisini kurduktan sonra OpenCode'u yeniden başlatın.
 
 ---
 

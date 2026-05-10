@@ -4,6 +4,8 @@
 const fs = require("fs");
 const readline = require("readline");
 const path = require("path");
+const os = require("os");
+const { pathToFileURL } = require("url");
 const i18n = require("./src/i18n");
 const store = require("./src/store");
 const api = require("./src/api");
@@ -11,6 +13,55 @@ const ui = require("./src/ui");
 
 const VERSION = "1.0.0";
 let updateVersion = null;
+
+function getOpencodeConfigDir() {
+  if (process.env.OPENCODE_CONFIG_DIR) return process.env.OPENCODE_CONFIG_DIR;
+  if (process.env.XDG_CONFIG_HOME) return path.join(process.env.XDG_CONFIG_HOME, "opencode");
+  return path.join(os.homedir(), ".config", "opencode");
+}
+
+function normalizeTuiConfig(raw) {
+  const config = raw && typeof raw === "object" && !Array.isArray(raw) ? raw : {};
+  if (!Array.isArray(config.plugin)) config.plugin = [];
+  if (!config.$schema) config.$schema = "https://opencode.ai/tui.json";
+  return config;
+}
+
+function installPlugin() {
+  const configDir = getOpencodeConfigDir();
+  const tuiPath = path.join(configDir, "tui.json");
+  const pluginPath = path.join(__dirname, "plugin", "oc-hesap-sidebar", "tui.tsx");
+  const pluginSpec = pathToFileURL(pluginPath).href;
+
+  if (!fs.existsSync(pluginPath)) {
+    throw new Error(`Sidebar plugin not found: ${pluginPath}`);
+  }
+
+  const config = normalizeTuiConfig(store.readJson(tuiPath, {}));
+  const existingIndex = config.plugin.findIndex((entry) => {
+    const spec = Array.isArray(entry) ? entry[0] : entry;
+    return typeof spec === "string" && spec.includes("oc-hesap-sidebar");
+  });
+  const entry = [pluginSpec, { refreshMs: 30000 }];
+
+  if (existingIndex >= 0) {
+    config.plugin[existingIndex] = entry;
+  } else {
+    config.plugin.push(entry);
+  }
+
+  store.writeJsonAtomic(tuiPath, config);
+  process.stdout.write(`OpenCode sidebar plugin installed: ${tuiPath}\n`);
+  process.stdout.write("Restart OpenCode to load the sidebar.\n");
+}
+
+function printHelp() {
+  process.stdout.write(`oc-hesap ${VERSION}\n\n`);
+  process.stdout.write("Usage:\n");
+  process.stdout.write("  oc-hesap                 Open the account manager\n");
+  process.stdout.write("  oc-hesap install-plugin  Install/update the OpenCode sidebar plugin\n");
+  process.stdout.write("  oc-hesap --help          Show this help\n");
+}
 
 async function performHealthCheckForAll() {
   process.stdout.write(i18n.t("healthCheckStarted") + "\n");
@@ -141,6 +192,16 @@ async function runInteractive() {
 }
 
 async function main() {
+  const command = process.argv[2];
+  if (command === "install-plugin") {
+    installPlugin();
+    return;
+  }
+  if (command === "--help" || command === "-h" || command === "help") {
+    printHelp();
+    return;
+  }
+
   if (!fs.existsSync(store.authPath)) {
     console.error(i18n.t("authNotFound") + store.authPath);
     process.exit(1);

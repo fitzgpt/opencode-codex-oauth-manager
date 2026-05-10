@@ -20,7 +20,13 @@ bun install
 bun -e "import('@opentui/solid/runtime-plugin-support').then(() => import('./tui.tsx')).then(() => console.log('plugin import ok'))"
 ```
 
-OpenCode TUI config example:
+OpenCode TUI config can be installed automatically:
+
+```bash
+oc-hesap install-plugin
+```
+
+Manual config example:
 
 ```json
 {
