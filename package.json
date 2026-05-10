@@ -1,6 +1,6 @@
 {
   "name": "opencode-codex-oauth-manager",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "OpenCode OpenAI account manager, quota checker, and sidebar plugin installer",
   "main": "index.js",
   "exports": {

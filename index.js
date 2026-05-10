@@ -11,7 +11,7 @@ const store = require("./src/store");
 const api = require("./src/api");
 const ui = require("./src/ui");
 
-const VERSION = "1.0.0";
+const VERSION = require("./package.json").version;
 let updateVersion = null;
 
 function getOpencodeConfigDir() {
