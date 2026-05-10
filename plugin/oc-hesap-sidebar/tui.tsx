@@ -5,7 +5,7 @@ import os from "node:os"
 import path from "node:path"
 import { createSignal, For, onCleanup, onMount, Show } from "solid-js"
 
-const id = "oc-hesap-sidebar"
+export const id = "oc-hesap-sidebar"
 const dataDir = path.join(os.homedir(), ".local", "share", "opencode")
 const authPath = path.join(dataDir, "auth.json")
 const depoPath = path.join(dataDir, "depo.json")
@@ -514,7 +514,7 @@ function View(props: {
   )
 }
 
-const tui: TuiPlugin = async (api) => {
+export const tui: TuiPlugin = async (api) => {
   api.slots.register({
     order: 155,
     slots: {

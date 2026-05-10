@@ -105,7 +105,7 @@ bun add @opentui/solid solid-js
 {
   "$schema": "https://opencode.ai/tui.json",
   "plugin": [
-    ["file:///ABSOLUTE/PATH/TO/opencode-codex-oauth-manager/plugin/oc-hesap-sidebar", { "refreshMs": 30000 }]
+    ["file:///ABSOLUTE/PATH/TO/opencode-codex-oauth-manager/plugin/oc-hesap-sidebar/tui.tsx", { "refreshMs": 30000 }]
   ]
 }
 ```
