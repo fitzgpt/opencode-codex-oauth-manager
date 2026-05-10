@@ -2,6 +2,8 @@
 
 # 🚀 opencode-codex-oauth-manager
 
+[![npm version](https://img.shields.io/npm/v/opencode-codex-oauth-manager?style=flat-square)](https://www.npmjs.com/package/opencode-codex-oauth-manager)
+
 ![Dashboard Preview](./preview.png)
 
 > **"Built to make the OpenCode experience even more practical and seamless."**
@@ -63,6 +65,12 @@ If you're an OpenCode power user, this is your new unfair advantage:
    ```
    Restart OpenCode after installing the sidebar plugin.
 
+### Update
+
+```bash
+npm update -g opencode-codex-oauth-manager
+```
+
 ---
 
 ## 🎮 Interactive Commands
@@ -98,6 +106,23 @@ oc-hesap install-plugin
 ```
 
 This updates `~/.config/opencode/tui.json` automatically. Restart OpenCode after installing the sidebar plugin.
+
+---
+
+## 📦 npm Package & Releases
+
+The package is published on npm as [`opencode-codex-oauth-manager`](https://www.npmjs.com/package/opencode-codex-oauth-manager).
+
+Release flow for maintainers:
+
+```bash
+npm version patch
+git push origin master --tags
+```
+
+GitHub Actions publishes tagged releases to npm automatically. The repository must define an Actions secret named `NPM_TOKEN` with npm publish permissions.
+
+For future AI-assisted maintenance, see [`AI_CONTEXT.md`](./AI_CONTEXT.md).
 
 ---
 

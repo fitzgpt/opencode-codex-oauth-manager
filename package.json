@@ -1,6 +1,6 @@
 {
   "name": "opencode-codex-oauth-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OpenCode OpenAI account manager, quota checker, and sidebar plugin installer",
   "main": "index.js",
   "exports": {
@@ -17,6 +17,7 @@
     "plugin/oc-hesap-sidebar/tui.tsx",
     "plugin/oc-hesap-sidebar/package.json",
     "plugin/oc-hesap-sidebar/README.md",
+    "AI_CONTEXT.md",
     "README.md",
     "README_TR.md",
     "LICENSE",

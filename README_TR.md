@@ -2,6 +2,8 @@
 
 # 🚀 opencode-codex-oauth-manager (Türkçe)
 
+[![npm version](https://img.shields.io/npm/v/opencode-codex-oauth-manager?style=flat-square)](https://www.npmjs.com/package/opencode-codex-oauth-manager)
+
 ![Dashboard Preview](./preview.png)
 
 **"OpenCode deneyimini daha pratik ve kusursuz hale getirmek için geliştirildi."**
@@ -63,6 +65,12 @@ Eğer sıkı bir OpenCode kullanıcısıysanız, bu araç sizin yeni avantajın�
    ```
    Sidebar eklentisini kurduktan sonra OpenCode'u yeniden başlatın.
 
+### Güncelleme
+
+```bash
+npm update -g opencode-codex-oauth-manager
+```
+
 ---
 
 ## 🎮 İnteraktif Komutlar
@@ -98,6 +106,23 @@ oc-hesap install-plugin
 ```
 
 Bu komut `~/.config/opencode/tui.json` dosyasını otomatik günceller. Sidebar eklentisini kurduktan sonra OpenCode'u yeniden başlatın.
+
+---
+
+## 📦 npm Paketi ve Yayın Akışı
+
+Paket npm üzerinde [`opencode-codex-oauth-manager`](https://www.npmjs.com/package/opencode-codex-oauth-manager) adıyla yayınlanır.
+
+Bakım yapanlar için release akışı:
+
+```bash
+npm version patch
+git push origin master --tags
+```
+
+GitHub Actions tag atılan sürümleri otomatik olarak npm'e publish eder. Repoda npm publish yetkisi olan `NPM_TOKEN` isimli Actions secret tanımlı olmalıdır.
+
+Gelecekte yapay zeka destekli bakım için [`AI_CONTEXT.md`](./AI_CONTEXT.md) dosyasına bakın.
 
 ---
 
